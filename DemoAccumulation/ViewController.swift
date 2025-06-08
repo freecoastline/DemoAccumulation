@@ -10,6 +10,8 @@ import UIKit
 class ViewController: UIViewController {
 
     let inputArray:[Any] = [true, 0, false, 1, 1, "ddd"]
+    let stringArray = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog", "brown"]
+    
     
     func bubbleSort(_ inputArray: [Int]) -> [Int] {
         guard inputArray.count > 1 else {
@@ -55,6 +57,37 @@ class ViewController: UIViewController {
         print(everyNthArray)
     }
     
+    func dropLastfewElements<T:Any> (with arr:[T], while predicate: (T) -> Bool) {
+        var droppedArray = arr
+        for element in droppedArray.reversed() {
+            if !predicate(element) { break }
+            droppedArray =  droppedArray.dropLast()
+        }
+        print(droppedArray)
+    }
+    
+    func countOccurenceOfString(_ arr: [String], into: String) -> Int {
+        arr.reduce(0) { $1 == into ? $0 + 1 : $0 }
+    }
+    
+    func deepFlattenArray(_ arr: [Any]) {
+        var flattenedArray = [Any]()
+        for element in arr {
+            if let element = element as? Int {
+                flattenedArray.append(element)
+            }
+            if let element = element as? [Any] {
+                for i in element {
+                    if let i = i as? Int {
+                        flattenedArray.append(i)
+                    }
+                }
+            }
+        }
+        print(flattenedArray)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -65,6 +98,14 @@ class ViewController: UIViewController {
         print(divideArray(inputArray, chunkSize: 2))
         print("======")
         getEveryNth(2, arr: ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"])
+        print("======")
+        dropLastfewElements(with: [1, 2, 3, 4, 5, 6], while: { $0 > 3})
+        dropLastfewElements(with: ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog", "lazy"], while: { $0.count > 3})
+        print("======")
+        print(countOccurenceOfString(stringArray, into: "brown"))
+        print("======")
+        deepFlattenArray([6, 5, 4, [3, 2], [1]])
+        
     }
 
 
