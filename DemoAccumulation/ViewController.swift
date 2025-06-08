@@ -88,6 +88,14 @@ class ViewController: UIViewController {
     }
     
     
+    func difference(_ arr1: [AnyHashable], arr2: [AnyHashable]) -> Set<AnyHashable>{
+        Set(arr1).symmetricDifference(arr2)
+    }
+    
+    func checkForDuplicates(_ arr:[AnyHashable]) -> Bool{
+        arr.count != Set(arr).count
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -105,6 +113,12 @@ class ViewController: UIViewController {
         print(countOccurenceOfString(stringArray, into: "brown"))
         print("======")
         deepFlattenArray([6, 5, 4, [3, 2], [1]])
+        print("======")
+        print(difference([1,1,3,4], arr2: [5,1,6]))
+        print("======")
+        print(checkForDuplicates([1,1,4,3]))
+        print(checkForDuplicates([1,4,3]))
+        print("======")
         
     }
 
