@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
@@ -96,6 +97,8 @@ class ViewController: UIViewController {
         arr.count != Set(arr).count
     }
     
+    let combineVC = CombineTestViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -120,8 +123,11 @@ class ViewController: UIViewController {
         print(checkForDuplicates([1,4,3]))
         print("======")
         
+        view.addSubview(combineVC.view)
+        combineVC.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
     }
-
-
 }
 
