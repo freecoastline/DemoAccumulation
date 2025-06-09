@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     let inputArray:[Any] = [true, 0, false, 1, 1, "ddd"]
     let stringArray = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog", "brown"]
-    
+    let IntArray = [6,5,4,3,2]
     
     func bubbleSort(_ inputArray: [Int]) -> [Int] {
         guard inputArray.count > 1 else {
@@ -97,6 +97,64 @@ class ViewController: UIViewController {
         arr.count != Set(arr).count
     }
     
+    func insertionSort(_ arr: [Int]) {
+        var a = arr
+        for index in stride(from: 1, to: a.count, by: 1) {
+            var y = index
+            while y > 0 && a[y] < a[y - 1] {
+                a.swapAt(y, y - 1)
+                y -= 1
+            }
+        }
+        print(a)
+    }
+    
+    
+    func randomChange(_ arr:[AnyHashable]) {
+        var a = arr
+        for index in stride(from: a.count - 1, through: 1, by: -1) {
+            let i = Int.random(in: 0...index)
+            if index != i {
+                a.swapAt(i, index)
+            }
+        }
+        print(a)
+    }
+    
+    
+    func calcMedian(_ arr:[Int]) {
+        print(arr.sorted(by: <)[arr.count / 2])
+    }
+    
+    
+    func calAverage(_ arr:[Int]) {
+        print(arr.reduce(0, +) / 2)
+    }
+    
+    //gcd
+    func gcd(num1: Int, num2: Int) -> Int {
+        let mod = num1 % num2
+        if mod != 0 {
+            return gcd(num1: num2, num2: mod)
+        }
+        return num2
+    }
+
+    //lcm: least common multiple between two integers using gcd function above
+    func lcm1(num1: Int, num2: Int) -> Int {
+        return abs(num1 * num2) / gcd(num1: num1, num2: num2)
+    }
+    
+    func lcm2(_ arr: [Int]) {
+        print(arr.reduce(24) { lcm1(num1: $0, num2: $1) })
+    }
+    
+    
+    func maxn(_ arr: [Int]) {
+        if let a = arr.max(by: <) {
+            print(a)
+        }
+    }
     let combineVC = CombineTestViewController()
     
     override func viewDidLoad() {
@@ -127,7 +185,17 @@ class ViewController: UIViewController {
         combineVC.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-        
+        insertionSort(IntArray)
+        print("======")
+        randomChange(IntArray)
+        print("======")
+        calcMedian(IntArray)
+        print("======")
+        calAverage(IntArray)
+        print("======")
+        lcm2([1,1,3,4])
+        print("======")
+        maxn(IntArray)
     }
 }
 
