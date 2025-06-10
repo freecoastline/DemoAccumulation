@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 class CombineTestViewController:UIViewController {
-    @Published var currentString = "first"
+    @Published var currentString = ["first"]
     
     var cancellable = Set<AnyCancellable>()
     
@@ -34,12 +34,11 @@ class CombineTestViewController:UIViewController {
     
     @objc
     func changeCurrentString() {
-        currentString = "changed"
+        currentString = ["changed"]
     }
 
     func setupBinding() {
         currentString.publisher
-                     .map({ String($0) })
                      .sink { completion in
                          switch completion {
                          case .finished:

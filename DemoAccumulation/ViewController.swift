@@ -157,6 +157,35 @@ class ViewController: UIViewController {
     }
     let combineVC = CombineTestViewController()
     
+    func countVowels(_ str: String) {
+        let vowels = Set(["a", "e", "i", "o", "u"])
+        var count = 0
+        for charactor in str {
+            if vowels.contains("\(charactor)") {
+                count += 1
+            }
+        }
+        print(count)
+    }
+    
+    func firstWordLowerCase(_ str: String) {
+        var components = str.components(separatedBy: " ")
+        components[0] = components[0].lowercased()
+        print(components.joined(separator: " "))
+    }
+    
+    
+    func anagram(_ str1: String, str2: String) {
+        var s1 = str1.filter {  !$0.isWhitespace }.lowercased()
+        var s2 = str2.filter {  !$0.isWhitespace }.lowercased()
+        print(s1.sorted() == s2.sorted())
+    }
+    
+    func drop(_ arr:[AnyHashable], num:Int) {
+        var array = arr
+        print(array.dropFirst(num))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -196,6 +225,14 @@ class ViewController: UIViewController {
         lcm2([1,1,3,4])
         print("======")
         maxn(IntArray)
+        print("======")
+        countVowels("im mom")
+        print("======")
+        firstWordLowerCase("Im dsldmsldmsd ds ds dsdsd sd s ds ds ds dddd")
+        print("======")
+        anagram("Buckethead", str2: "Death Cube K")
+        print("======")
+        drop([1,1,1,1,2,3], num: 4)
     }
 }
 
