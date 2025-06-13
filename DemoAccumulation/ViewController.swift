@@ -186,6 +186,14 @@ class ViewController: UIViewController {
         print(array.dropFirst(num))
     }
     
+    func csv(_ arr: [Array<String>]) {
+        var result = ""
+        for row in arr {
+            result.append(row.map{ "\"\($0)\"" }.joined(separator: ",") + "\n")
+        }
+        print(result)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -233,6 +241,8 @@ class ViewController: UIViewController {
         anagram("Buckethead", str2: "Death Cube K")
         print("======")
         drop([1,1,1,1,2,3], num: 4)
+        csv([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]])
+        
     }
 }
 
