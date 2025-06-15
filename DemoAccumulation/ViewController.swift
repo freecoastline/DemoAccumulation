@@ -240,7 +240,7 @@ class ViewController: UIViewController {
         print("======")
         anagram("Buckethead", str2: "Death Cube K")
         print("=======")
-        drop([1,1,1,1,2,3], num: 4)
+        drop([1,1,1,1,2,2,3], num: 4)
         csv([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]])
         
     }
