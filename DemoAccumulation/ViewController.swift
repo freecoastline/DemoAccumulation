@@ -238,7 +238,7 @@ class ViewController: UIViewController {
         print("======")
         firstWordLowerCase("Im dsldmsldmsd ds ds dsdsd sd s ds ds ds dddd")
         print("======")
-        anagram("Buckethead", str2: "Death Cube K")
+        anagram("Bucketxhead", str2: "Death Cube K")
         print("=======")
         drop([1,1,1,1,2,2,3], num: 4)
         csv([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]])
