@@ -194,6 +194,16 @@ class ViewController: UIViewController {
         print(result)
     }
     
+    func flip<A, B, C>(_ function: @escaping ((A, B) -> C)) -> ((B, A) -> C) {
+        return { (a, b) in
+            return function(b, a)
+        }
+    }
+    
+    func concat(_ str1: String, str2: String) {
+        print(str1 + str2)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -242,6 +252,8 @@ class ViewController: UIViewController {
         print("=======")
         drop([1,1,1,1,2,2,3], num: 4)
         csv([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]])
+        let reverseConcat = flip(concat)
+        reverseConcat("2", "111")
         
     }
 }
