@@ -222,7 +222,7 @@ class ViewController: UIViewController {
         print("======")
         deepFlattenArray([6, 5, 4, [3, 2], [1]])
         print("======")
-        print(difference([1,1,3,4], arr2: [5,1,6]))
+        print(difference([1,1,3,4], arr2: [5,1,6,7]))
         print("======")
         print(checkForDuplicates([1,1,4,3]))
         print(checkForDuplicates([1,4,3]))
