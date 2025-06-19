@@ -204,6 +204,15 @@ class ViewController: UIViewController {
         print(str1 + str2)
     }
     
+    func dropRight(_ arr: [Int], while predicate: (Int) -> (Bool)) {
+        var tempArr = arr
+        for i in tempArr.reversed() {
+            if predicate(i) { break }
+            tempArr = tempArr.dropLast()
+        }
+        print(tempArr)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -254,6 +263,7 @@ class ViewController: UIViewController {
         csv([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]])
         let reverseConcat = flip(concat)
         reverseConcat("2", "111")
+        dropRight([1,2,3,4]) { $0 < 3 }
         
     }
 }
