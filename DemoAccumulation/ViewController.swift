@@ -213,6 +213,12 @@ class ViewController: UIViewController {
         print(tempArr)
     }
     
+    func evertNthElement(_ arr: [Any], n: Int) {
+        print(arr.enumerated().compactMap({
+            ($0.offset + 1) % n == 0 ? $0.element : nil
+        }))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -263,7 +269,10 @@ class ViewController: UIViewController {
         csv([["a", "b", "c"], ["d", "e", "f"], ["g", "h", "i"]])
         let reverseConcat = flip(concat)
         reverseConcat("2", "111")
+        print("=======")
         dropRight([1,2,3,4]) { $0 < 3 }
+        print("=======")
+        evertNthElement([1,2,3,4,5], n: 2)
         
     }
 }
