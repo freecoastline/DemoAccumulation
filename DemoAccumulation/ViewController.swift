@@ -219,6 +219,16 @@ class ViewController: UIViewController {
         }))
     }
     
+    func snake(_ str: String) {
+        let pattern = "([a-z0-9])([A-Z])"
+        let regex = try? NSRegularExpression(pattern: pattern, options: [])
+        let range = NSRange(location: 0, length: str.count)
+        print(regex?.stringByReplacingMatches(in: str, range: range, withTemplate: "$3_$4")
+            .lowercased()
+            .replacingOccurrences(of: " ", with: "_")
+            .replacingOccurrences(of: "-", with: "_"))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -273,7 +283,8 @@ class ViewController: UIViewController {
         dropRight([1,2,3,4]) { $0 < 3 }
         print("=======")
         evertNthElement([1,2,3,4,5], n: 2)
-        
+        print("=======")
+        snake("cameaseeE")
     }
 }
 
