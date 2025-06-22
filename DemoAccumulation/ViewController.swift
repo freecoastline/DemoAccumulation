@@ -223,7 +223,7 @@ class ViewController: UIViewController {
         let pattern = "([a-z0-9])([A-Z])"
         let regex = try? NSRegularExpression(pattern: pattern, options: [])
         let range = NSRange(location: 0, length: str.count)
-        print(regex?.stringByReplacingMatches(in: str, range: range, withTemplate: "$3_$4")
+        print(regex?.stringByReplacingMatches(in: str, range: range, withTemplate: "$1_$2")
             .lowercased()
             .replacingOccurrences(of: " ", with: "_")
             .replacingOccurrences(of: "-", with: "_"))
