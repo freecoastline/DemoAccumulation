@@ -220,13 +220,21 @@ class ViewController: UIViewController {
     }
     
     func snake(_ str: String) {
-        let pattern = "([a-z0-9])([A-Z])"
+        let pattern = "([a-z])([A-Z])"
         let regex = try? NSRegularExpression(pattern: pattern, options: [])
         let range = NSRange(location: 0, length: str.count)
-        print(regex?.stringByReplacingMatches(in: str, range: range, withTemplate: "$1_$2")
-            .lowercased()
-            .replacingOccurrences(of: " ", with: "_")
-            .replacingOccurrences(of: "-", with: "_"))
+//        print(regex?.stringByReplacingMatches(in: str, range: range, withTemplate: "$1_$2")
+//            .replacingOccurrences(of: " ", with: "_")
+//            .replacingOccurrences(of: "-", with: "_"))
+        guard let matches = regex?.matches(in: str, range: range) else {
+            return
+        }
+        for match in matches {
+            guard let swiftrange = Range(match.range(at: 0), in: str) else {
+                return
+            }
+            print(str[swiftrange])
+        }
     }
     
     override func viewDidLoad() {
@@ -284,7 +292,7 @@ class ViewController: UIViewController {
         print("=======")
         evertNthElement([1,2,3,4,5], n: 2)
         print("=======")
-        snake("cameaseeE")
+        snake("cdDeeEe")
     }
 }
 
