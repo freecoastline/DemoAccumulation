@@ -237,6 +237,11 @@ class ViewController: UIViewController {
         }
     }
     
+    func filterNonUnique(_ arr:[Any]) {
+        let set = NSOrderedSet(array: arr)
+        print(set.array)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -293,6 +298,9 @@ class ViewController: UIViewController {
         evertNthElement([1,2,3,4,5], n: 2)
         print("=======")
         snake("cdDeeEe")
+        print("=======")
+        filterNonUnique([1,2,2,2,3,4,5])
+        filterNonUnique(["Tim", "Steve", "Tim", "Jony", "Phil"])
     }
 }
 
