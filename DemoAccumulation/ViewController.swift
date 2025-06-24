@@ -242,6 +242,36 @@ class ViewController: UIViewController {
         print(set.array)
     }
     
+    func isSortedArray(_ arr:[Int]) {
+        var asc:Bool = true
+        var prev = Int.min
+        for elem in arr {
+            if elem < prev {
+                asc = false
+                break;
+            }
+            prev = elem
+        }
+        
+        var dec = true
+        var prev1 = Int.max
+        for elem in arr {
+            if elem > prev1 {
+                dec = false
+                break
+            }
+            prev1 = elem
+        }
+        print("isasc: \(asc) isdec:\(dec)")
+    }
+    
+    func isSortedArray2(_ arr:[Int]) {
+        var sortedArr = arr.sorted { $0 < $1 }
+        let isAsc = sortedArr == arr
+        let isDec = sortedArr == arr.reversed()
+        print("isasc: \(isAsc) isdec: \(isDec)")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -301,6 +331,11 @@ class ViewController: UIViewController {
         print("=======")
         filterNonUnique([1,2,2,2,3,4,5])
         filterNonUnique(["Tim", "Steve", "Tim", "Jony", "Phil"])
+        print("=======")
+        isSortedArray([1,2,3,4,5])
+        isSortedArray([5,4,3])
+        isSortedArray2([1,2,3,4,5])
+        isSortedArray2([5,4,3])
     }
 }
 
