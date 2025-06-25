@@ -272,6 +272,10 @@ class ViewController: UIViewController {
         print("isasc: \(isAsc) isdec: \(isDec)")
     }
     
+    func commaSeperated(_ arr: [String]) {
+        print(arr.joined(separator: ","))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -336,6 +340,8 @@ class ViewController: UIViewController {
         isSortedArray([5,4,3])
         isSortedArray2([1,2,3,4,5])
         isSortedArray2([5,4,3])
+        print("=======")
+        commaSeperated(["dddd", "eeee"])
     }
 }
 
