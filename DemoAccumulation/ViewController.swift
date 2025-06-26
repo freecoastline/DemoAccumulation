@@ -276,6 +276,14 @@ class ViewController: UIViewController {
         print(arr.joined(separator: ","))
     }
     
+    func cammelToSnake(_ str: String) {
+        guard let regex = try? NSRegularExpression(pattern: "([a-z][A-Z])", options: []) else {
+            return
+        }
+        let range = NSRange(location: 0, length: str.count)
+        print(regex.stringByReplacingMatches(in: str, range: range, withTemplate: "$1_$2"))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -342,6 +350,8 @@ class ViewController: UIViewController {
         isSortedArray2([5,4,3])
         print("=======")
         commaSeperated(["dddd", "eeee"])
+        print("=======")
+        cammelToSnake("dsdsdsdEeeee")
     }
 }
 
