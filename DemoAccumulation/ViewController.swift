@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-
+    
     let inputArray:[Any] = [true, 0, false, 1, 1, "ddd"]
     let stringArray = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog", "brown"]
     let IntArray = [6,5,4,3,2]
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
         }
         return num2
     }
-
+    
     //lcm: least common multiple between two integers using gcd function above
     func lcm1(num1: Int, num2: Int) -> Int {
         return abs(num1 * num2) / gcd(num1: num1, num2: num2)
@@ -223,9 +223,9 @@ class ViewController: UIViewController {
         let pattern = "([a-z])([A-Z])"
         let regex = try? NSRegularExpression(pattern: pattern, options: [])
         let range = NSRange(location: 0, length: str.count)
-//        print(regex?.stringByReplacingMatches(in: str, range: range, withTemplate: "$1_$2")
-//            .replacingOccurrences(of: " ", with: "_")
-//            .replacingOccurrences(of: "-", with: "_"))
+        //        print(regex?.stringByReplacingMatches(in: str, range: range, withTemplate: "$1_$2")
+        //            .replacingOccurrences(of: " ", with: "_")
+        //            .replacingOccurrences(of: "-", with: "_"))
         guard let matches = regex?.matches(in: str, range: range) else {
             return
         }
@@ -351,7 +351,6 @@ class ViewController: UIViewController {
         print("=======")
         commaSeperated(["dddd", "eeee"])
         print("=======")
-        cammelToSnake("dsdsdsdEeeee")
-    }
+        cammelToSnake("dsdsdsddEeeee")
+    }
 }
-
