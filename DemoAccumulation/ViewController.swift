@@ -284,6 +284,18 @@ class ViewController: UIViewController {
         print(regex.stringByReplacingMatches(in: str, range: range, withTemplate: "$1_$2"))
     }
     
+    func mostFrequent<Type: Hashable>(_ arr: [Type]) {
+        var dict = [Type: Int]()
+        for element in arr {
+            if dict[element] == nil {
+                dict[element] = 1
+            } else {
+                dict[element]! += 1
+            }
+        }
+        print(dict.sorted(by: {$0.1 > $1.1 }).first?.key)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -352,5 +364,8 @@ class ViewController: UIViewController {
         commaSeperated(["dddd", "eeee"])
         print("=======")
         cammelToSnake("dsdsdsddEeeee")
+        print("=======")
+        mostFrequent([1, 2, 5, 4, 1, 9, 8, 7, 4, 5, 1, 5, 1]) // 1
+        mostFrequent(["a", "b", "c", "a"]) // "a"
     }
 }
