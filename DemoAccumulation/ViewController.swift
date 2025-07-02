@@ -296,6 +296,14 @@ class ViewController: UIViewController {
         print(dict.sorted(by: {$0.1 > $1.1 }).first?.key)
     }
     
+    func filterFirstUniqueCharacter(_ str:String) {
+        var dict = [Character: Int]()
+        for char in str {
+            dict[char] = (dict[char] ?? 0) + 1
+        }
+        print(str.filter({dict[$0] == 1}).first)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -367,5 +375,7 @@ class ViewController: UIViewController {
         print("=======")
         mostFrequent([1, 2, 5, 4, 1, 9, 8, 7, 4, 5, 1, 5, 1]) // 1
         mostFrequent(["a", "b", "c", "a"]) // "a"
+        print("=======")
+        filterFirstUniqueCharacter("EEUI")
     }
 }
