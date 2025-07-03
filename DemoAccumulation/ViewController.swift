@@ -377,5 +377,6 @@ class ViewController: UIViewController {
         mostFrequent(["a", "b", "c", "a"]) // "a"
         print("=======")
         filterFirstUniqueCharacter("EEUI")
+        print("=======")
     }
 }
