@@ -304,6 +304,10 @@ class ViewController: UIViewController {
         print(str.filter({dict[$0] == 1}).first)
     }
     
+    func flatArray<T>(_ arr: [[T?]]) {
+        print(arr.flatMap{$0}.compactMap{$0})
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -378,5 +382,6 @@ class ViewController: UIViewController {
         print("=======")
         filterFirstUniqueCharacter("EEUI")
         print("==========")
+        flatArray([[1,nil,2], [2,4,nil]])
     }
 }
