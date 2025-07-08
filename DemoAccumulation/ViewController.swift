@@ -317,7 +317,7 @@ class ViewController: UIViewController {
         print("======")
         print(divideArray(inputArray, chunkSize: 2))
         print("======")
-        getEveryNth(2, arr: ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"])
+        getEveryNth(2, arr: ["The", "quick", "berown", "fox", "jumped", "over", "the", "lazy", "dog"])
         print("======")
         dropLastfewElements(with: [1, 2, 3, 4, 5, 6], while: { $0 > 3})
         dropLastfewElements(with: ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog", "lazy"], while: { $0.count > 3})
